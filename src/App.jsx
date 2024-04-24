@@ -25,6 +25,10 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         console.log("inside post response", data);
+        const newUsers=[...users,data]
+        setUsers(newUsers)
+        form.reset();
+
       });
   };
   return (
@@ -32,8 +36,8 @@ function App() {
       <h1>Users Management System</h1>
       <h3>Numbers of Users : {users.length}</h3>
       <form onSubmit={handleAddUser}>
-        <input type="text" name="name"/>
-        <input type="email" name="email" />
+        <input type="text" name="name"/> <br />
+        <input type="email" name="email" /> <br />
         <input type="submit" value="add user" />
       </form>
       <div>
